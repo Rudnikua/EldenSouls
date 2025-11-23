@@ -9,7 +9,7 @@ BlendTree:
   m_Name: Locomotion
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 4781951162920444690, guid: 7f7265ddfc00a98499eebddd04f4052f, type: 3}
+    m_Motion: {fileID: 4781951162920444690, guid: 94d32cbc051cc8c40b1dbdf4470b9695, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -17,7 +17,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 4781951162920444690, guid: 7f7265ddfc00a98499eebddd04f4052f, type: 3}
+    m_Motion: {fileID: 4781951162920444690, guid: acd46c7b49f6f8b4e94c44ff2249902e, type: 3}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -74,7 +74,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 4781951162920444690, guid: b7e347a7b8ff81245873e52d1eb1ea3b, type: 3}
+  m_Motion: {fileID: 4781951162920444690, guid: 3f10002f9b2052043a7e6269c56b2d8d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -121,7 +121,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Locomotion
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

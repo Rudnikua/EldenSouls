@@ -26,9 +26,10 @@ public class Enemy : MonoBehaviour, IDamageable {
 
     private void Update() {
         animator.SetFloat(AGENT_SPEED, agent.velocity.magnitude / agent.speed);
-
+        
         if (timePassedBetweenAttacks >= attackCD) {
             if (Vector3.Distance(player.transform.position, transform.position) <= attackRange) {
+                agent.isStopped = true;
                 animator.SetTrigger(AGENT_ATTACK);
                 timePassedBetweenAttacks = 0;
             }
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour, IDamageable {
         timePassedBetweenAttacks += Time.deltaTime;
 
         if (newDestinationCD <= 0 && Vector3.Distance(player.transform.position, transform.position) <= aggroRange) {
+            agent.isStopped = false;
             newDestinationCD = 0.5f;
             agent.SetDestination(player.transform.position);
         }
