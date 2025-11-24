@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4254951943193576271}
   - component: {fileID: -4844710228994102877}
   - component: {fileID: 6400796338432802521}
+  - component: {fileID: 4146350611411285732}
   m_Layer: 6
   m_Name: SkeletonPrefab
   m_TagString: Enemy
@@ -139,6 +140,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
   maxHealth: 100
   isPlayer: 0
+--- !u!114 &4146350611411285732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4945744458092574414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cbd115f3008d441b4ebc974c7ab209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableEnableCollider
+  currentWeaponInHand: {fileID: 196935928309489885}
 --- !u!1001 &892515863153449217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,11 +217,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7052286363617177160, guid: dda2fbfe6aec38d458268a0eb846ec5a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dda2fbfe6aec38d458268a0eb846ec5a, type: 3}
+--- !u!1 &196935928309489885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1070012126238587356, guid: dda2fbfe6aec38d458268a0eb846ec5a, type: 3}
+  m_PrefabInstance: {fileID: 892515863153449217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3597615629570502915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4435929257689540610, guid: dda2fbfe6aec38d458268a0eb846ec5a, type: 3}

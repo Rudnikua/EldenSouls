@@ -2,7 +2,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour, IDamageable {
+public class EnemyAI : MonoBehaviour {
     private enum State {
         Patrol,
         Chase,
@@ -21,7 +21,6 @@ public class EnemyAI : MonoBehaviour, IDamageable {
     [SerializeField] private float lineOfSightCheckRate = 0.3f;
 
     [Header("Combat")]
-    [SerializeField] private float health = 100f;
     [SerializeField] private float attackCD = 2f;
 
     [Header("Patrol")]
@@ -65,7 +64,7 @@ public class EnemyAI : MonoBehaviour, IDamageable {
                     SetState(State.Chase);
                 break;
             case State.Chase:
-                if (distanceToPlayer <= aggroRange && hasLOS)
+                if (distanceToPlayer <= attackRange && hasLOS)
                     SetState(State.Attack);
                 else if (distanceToPlayer > aggroRange || !hasLOS)
                     SetState(State.Patrol);
@@ -87,7 +86,7 @@ public class EnemyAI : MonoBehaviour, IDamageable {
                 ChaseBehavior();
                 break;
             case State.Attack:
-                AttackBehavior(); 
+                AttackBehavior();
                 break;
         }
     }
@@ -113,6 +112,7 @@ public class EnemyAI : MonoBehaviour, IDamageable {
                 break;
             case State.Attack:
                 agent.isStopped = true;
+                agent.velocity = Vector3.zero;
                 break;
         }
     }
@@ -131,12 +131,12 @@ public class EnemyAI : MonoBehaviour, IDamageable {
             }
         }
 
-        animator.SetFloat(SpeedHash, agent.velocity.magnitude / agent.speed);
+        UpdateAnimatorSpeed();
     }
 
     private void ChaseBehavior() {
         agent.SetDestination(player.position);
-        animator.SetFloat(SpeedHash, agent.velocity.magnitude / agent.speed);
+        UpdateAnimatorSpeed();
     }
 
     private void AttackBehavior() {
@@ -163,6 +163,12 @@ public class EnemyAI : MonoBehaviour, IDamageable {
         agent.SetDestination(patrolPoints[currentPatrolIndex].position);
         patrolTimer = patrolWaitTime;
     }
+    private void UpdateAnimatorSpeed() {
+        float speed = agent.velocity.magnitude;
+        float normilizedspeed = speed / agent.speed;
+        if (normilizedspeed < 0.05f) normilizedspeed = 0f;
+        animator.SetFloat(SpeedHash, normilizedspeed);
+    }
 
     private bool HasLineOfSight() {
         timeSinceLOS += Time.deltaTime;
@@ -178,16 +184,6 @@ public class EnemyAI : MonoBehaviour, IDamageable {
         }
 
         return false;
-    }
-    void IDamageable.TakeDamage(float damage) {
-        Debug.Log($"{name} took {damage} damage");
-        health -= damage;
-        if (health <= 0) {
-            Die();
-        }
-    }
-    private void Die() {
-        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected() {
