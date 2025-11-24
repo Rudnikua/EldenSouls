@@ -3,19 +3,23 @@ using UnityEngine;
 public class AttackTrigger : MonoBehaviour {
 
     [SerializeField] private WeaponSO weaponData;
+    [SerializeField] private string targetTag;
 
-    private void Update() {
-        Debug.Log(weaponData.damage);
-    }
+    private float damage;
+
     private void OnTriggerEnter(Collider other) {
-        if (weaponData == null) {
-            Debug.LogError("WeaponData is NULL");
-        }
+        if (!other.CompareTag(targetTag)) return;
 
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null) {
-            Debug.Log("Enemy was hit");
-            enemy.TakeDamage(weaponData.damage);
-        }
+        HealthSystem target = other.GetComponent<HealthSystem>();
+        if (target == null) return;
+
+        float defaultdamage = 10f;
+        damage = weaponData != null ? weaponData.damage : defaultdamage;
+
+        target.TakeDamage(damage);
+
+        Debug.Log($"{gameObject.name} has dealt {damage} damage to {other.name}");
     }
+
+
 }
