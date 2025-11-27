@@ -14,10 +14,16 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     public float MaxHealth => maxHealth;
     public float CurrentHealth => currentHealth;
 
+    public bool IsInvulnerable = false;  
+
     private void Awake() {
         currentHealth = maxHealth;
     }
+
     public void TakeDamage(float damage) {
+
+        if (IsInvulnerable) return;   
+
         if (damage < 0) return;
 
         currentHealth -= damage;
@@ -41,4 +47,3 @@ public class HealthSystem : MonoBehaviour, IDamageable {
         }
     }
 }
-

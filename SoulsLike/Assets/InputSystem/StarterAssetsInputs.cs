@@ -16,6 +16,9 @@ namespace StarterAssets
 		public bool draw;
 		public bool attack;
 
+		// добавлено
+		public bool dodgeRoll;
+
         [Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -42,11 +45,14 @@ namespace StarterAssets
 		{
 			JumpInput(value.isPressed);
 		}
-        public void OnDraw(InputValue value) {
+
+        public void OnDraw(InputValue value)
+        {
             DrawInput(value.isPressed);
         }
 
-        public void OnAttack(InputValue value) {
+        public void OnAttack(InputValue value)
+        {
             AttackInput(value.isPressed);
         }
 
@@ -54,13 +60,19 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
-#endif
 
+        // <<< добавлено
+        public void OnDodgeRoll(InputValue value)
+        {
+            DodgeRollInput(value.isPressed);
+        }
+
+#endif
 
 		public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
-		} 
+		}
 
 		public void LookInput(Vector2 newLookDirection)
 		{
@@ -71,17 +83,27 @@ namespace StarterAssets
 		{
 			jump = newJumpState;
 		}
-        public void DrawInput(bool newDrawState) {
+
+        public void DrawInput(bool newDrawState)
+        {
             draw = newDrawState;
         }
 
-        public void AttackInput(bool newAttackState) {
+        public void AttackInput(bool newAttackState)
+        {
             attack = newAttackState;
         }
-        public void SprintInput(bool newSprintState)
+
+		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
 		}
+
+        // <<< добавлено
+        public void DodgeRollInput(bool newRollState)
+        {
+            dodgeRoll = newRollState;
+        }
 
         private void OnApplicationFocus(bool hasFocus)
 		{
@@ -93,5 +115,4 @@ namespace StarterAssets
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
 	}
-	
 }
