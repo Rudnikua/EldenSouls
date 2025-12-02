@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
   maxHealth: 100
   isPlayer: 0
+  dropSettings: {fileID: 11400000, guid: 4454a98be1163624aa5c027b2f429e48, type: 2}
+  IsInvulnerable: 0
 --- !u!114 &8030244339761808531
 MonoBehaviour:
   m_ObjectHideFlags: 0

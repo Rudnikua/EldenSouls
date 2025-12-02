@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool sprint;
 		public bool draw;
 		public bool attack;
+		public bool heal;
 
 		// добавлено
 		public bool dodgeRoll;
@@ -56,6 +57,10 @@ namespace StarterAssets
             AttackInput(value.isPressed);
         }
 
+        public void OnHeal(InputValue value) {
+            HealInput(value.isPressed);
+        }
+
         public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
@@ -93,8 +98,11 @@ namespace StarterAssets
         {
             attack = newAttackState;
         }
+        public void HealInput(bool newHealState) {
+            heal = newHealState;
+        }
 
-		public void SprintInput(bool newSprintState)
+        public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
 		}

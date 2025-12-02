@@ -73,14 +73,14 @@ public class WeaponController : MonoBehaviour {
     public void EnableSwordCollider() {
         if (equipmentSystem.GetCurrentWeaponInHand() != null) {
             equipmentSystem.GetCurrentWeaponInHand().GetComponent<BoxCollider>().enabled = true;
-            Debug.Log("Collider is enabled");
+            //Debug.Log("Collider is enabled");
         }
     }
 
     public void DisableSwordCollider() {
         if (equipmentSystem.GetCurrentWeaponInHand() != null) {
             equipmentSystem.GetCurrentWeaponInHand().GetComponent<BoxCollider>().enabled = false;
-            Debug.Log("Collider is disabled");
+            //Debug.Log("Collider is disabled");
         }
     }
 }
