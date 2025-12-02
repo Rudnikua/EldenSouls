@@ -56,6 +56,7 @@ public class HealthSystem : MonoBehaviour, IDamageable {
             if (dropSettings != null && UnityEngine.Random.value * 100f < dropSettings.dropChance) {
                 Instantiate(dropSettings.healthPotionPrefab, transform.position + Vector3.up * 0.5f , Quaternion.identity);
             }
+            KillManager.Instance?.AddKill();
             Destroy(gameObject);
         }
     }
