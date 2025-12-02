@@ -14,6 +14,7 @@ public class PotionCounterUI : MonoBehaviour {
             Debug.LogError("[PotionCounterUI] PlayerInventory not found");
         }
         potionIcon.gameObject.SetActive(PlayerInventory.Instance.CurrentPotions > 0);
+        potionCounterText.gameObject.SetActive(PlayerInventory.Instance.CurrentPotions > 0);
     }
     private void PlayerInventory_OnPotionCountChanged(object sender, PotionCountChangedEventArgs e) {
         UpdateDisplay(e.CurrentPotions);
@@ -25,8 +26,8 @@ public class PotionCounterUI : MonoBehaviour {
         }
 
         if (potionCounterText != null) {
-            potionCounterText.gameObject.SetActive(count > 0);
             potionCounterText.text = count.ToString();
+            potionCounterText.gameObject.SetActive(count > 0);
         }
     }
 
