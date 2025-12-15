@@ -23,6 +23,9 @@ namespace StarterAssets
         [Header("Movement Settings")]
 		public bool analogMovement;
 
+		public GameObject pausePanel; 
+private bool isPaused = false;
+
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
@@ -66,11 +69,53 @@ namespace StarterAssets
 			SprintInput(value.isPressed);
 		}
 
-        // <<< добавлено
         public void OnDodgeRoll(InputValue value)
         {
             DodgeRollInput(value.isPressed);
         }
+
+		public void OnPause(InputValue value)
+		{
+   		 if (value.isPressed)
+   		 {
+       		 Debug.Log("Escape нажата!");
+       		 if (isPaused)
+          	  ResumeGame();
+        	else
+           	 PauseGame();
+   		 }
+		}	
+
+		public void PauseGame()
+		{
+    	if (pausePanel != null)
+        	pausePanel.SetActive(true);
+
+    	isPaused = true;	
+
+    	Cursor.lockState = CursorLockMode.None;
+    	Cursor.visible = true;
+
+		}
+
+		public void ResumeGame()
+		{
+    	if (pausePanel != null)
+   		{
+    		pausePanel.SetActive(false); // скрываем панель
+        	Debug.Log("Панель паузы скрыта"); // проверка
+    	}
+    	else
+    	{
+        	Debug.LogWarning("pausePanel не подключена!");
+    	}
+
+    	isPaused = false;
+
+    // Скрываем курсор
+    	Cursor.lockState = CursorLockMode.Locked;
+    	Cursor.visible = false;
+		}	
 
 #endif
 
