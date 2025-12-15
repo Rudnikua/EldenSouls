@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2918613995603474772}
   - component: {fileID: 8030244339761808531}
   - component: {fileID: 2395023701106327315}
+  - component: {fileID: -2908639789575009061}
+  - component: {fileID: 3863858719775296557}
   m_Layer: 6
   m_Name: GoblinPrefab
   m_TagString: Enemy
@@ -160,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19cbd115f3008d441b4ebc974c7ab209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisableEnableCollider
-  currentWeaponInHand: {fileID: 0}
+  currentWeaponInHand: {fileID: 5781786159250670267}
 --- !u!114 &2395023701106327315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +183,119 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!82 &-2908639789575009061
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570919015773599511}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3863858719775296557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570919015773599511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbafeeb10e93c964783792b203515ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySounds
+  audioSource: {fileID: -2908639789575009061}
+  attackSound: {fileID: 8300000, guid: 06a8443544b965d45b5e5fb92e69b7e1, type: 3}
+  deathSound: {fileID: 8300000, guid: ce003c5c3f6d8454793e9971f4ffb71e, type: 3}
+  moveSounds: []
 --- !u!1 &5535651578068847690
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,6 +615,11 @@ PrefabInstance:
 --- !u!4 &2276651812772494826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7737185425716391331, guid: 21c1a25a91c43fc46998dea5d3ddade5, type: 3}
+  m_PrefabInstance: {fileID: 8428570146534723657}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5781786159250670267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2649607538554835698, guid: 21c1a25a91c43fc46998dea5d3ddade5, type: 3}
   m_PrefabInstance: {fileID: 8428570146534723657}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8902492006819402285
