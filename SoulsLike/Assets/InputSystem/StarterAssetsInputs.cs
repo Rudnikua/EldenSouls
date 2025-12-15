@@ -24,7 +24,7 @@ namespace StarterAssets
 		public bool analogMovement;
 
 		public GameObject pausePanel; 
-private bool isPaused = false;
+        private bool isPaused = false;
 
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
