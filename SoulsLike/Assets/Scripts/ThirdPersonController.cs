@@ -81,7 +81,7 @@ namespace StarterAssets
         private bool _isRolling = false;
         private float _rollTimer = 0f;
         public float RollDuration = 0.85f;
-        public float RollSpeed = 6f;
+        public float RollSpeed = 10f;
 
         
         private HealthSystem _health;  
