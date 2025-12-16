@@ -8,7 +8,7 @@ namespace StarterAssets
 {
 	public class StarterAssetsInputs : MonoBehaviour
 	{
-		[Header("Character Input Values")]
+        [Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
@@ -86,25 +86,25 @@ namespace StarterAssets
    		 }
 		}	
 
-		public void PauseGame()
-		{
-    	if (pausePanel != null)
-        	pausePanel.SetActive(true);
+		public void PauseGame() {
+			if (pausePanel != null) {
+				pausePanel.SetActive(true);
+				ThirdPersonController.Instance.LockCameraPosition = true; 
+			} 
 
-    	isPaused = true;	
+    	    isPaused = true;	
 
-    	Cursor.lockState = CursorLockMode.None;
-    	Cursor.visible = true;
+    	    Cursor.lockState = CursorLockMode.None;
+    	    Cursor.visible = true;
 
 		}
 
 		public void ResumeGame()
 		{
-    	if (pausePanel != null)
-   		{
-    		pausePanel.SetActive(false); // скрываем панель
-        	Debug.Log("Панель паузы скрыта"); // проверка
-    	}
+    	if (pausePanel != null) {
+    		pausePanel.SetActive(false);
+			ThirdPersonController.Instance.LockCameraPosition = false; 
+        }
     	else
     	{
         	Debug.LogWarning("pausePanel не подключена!");
@@ -112,7 +112,6 @@ namespace StarterAssets
 
     	isPaused = false;
 
-    // Скрываем курсор
     	Cursor.lockState = CursorLockMode.Locked;
     	Cursor.visible = false;
 		}	

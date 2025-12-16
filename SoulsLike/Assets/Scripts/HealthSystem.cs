@@ -3,6 +3,8 @@ using UnityEngine;
 
 
 public class HealthSystem : MonoBehaviour, IDamageable {
+    
+    public static HealthSystem Instance { get; private set; }  
 
     [Header("Health System")]
     [SerializeField] private float maxHealth = 100f;
@@ -12,6 +14,8 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     private float currentHealth;
 
     public event EventHandler<HealthBarChangedEventArgs> OnHealthChanged;
+    public event EventHandler<EventArgs> OnPlayerDeath;
+    public static event EventHandler<EventArgs> OnBossDeath;
 
     public float MaxHealth => maxHealth;
     public float CurrentHealth => currentHealth;
@@ -19,6 +23,7 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     public bool IsInvulnerable = false;  
 
     private void Awake() {
+        if (isPlayer) Instance = this;
         currentHealth = maxHealth;
     }
 
@@ -51,12 +56,19 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     private void Die() {
         if (isPlayer) {
             Debug.Log("Player died! (GAME OVER)");
+            OnPlayerDeath?.Invoke(this, EventArgs.Empty);
+            gameObject.SetActive(false);
         } else {
             Debug.Log($"{gameObject.name} died!");
             if (dropSettings != null && UnityEngine.Random.value * 100f < dropSettings.dropChance) {
-                Instantiate(dropSettings.healthPotionPrefab, transform.position + Vector3.up * 0.5f , Quaternion.identity);
+                Instantiate(dropSettings.healthPotionPrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
             }
             KillManager.Instance?.AddKill();
+
+            if (GetComponent<BossIdentifier>() != null) {
+                OnBossDeath?.Invoke(this, EventArgs.Empty);
+            }
+
             Destroy(gameObject);
         }
     }

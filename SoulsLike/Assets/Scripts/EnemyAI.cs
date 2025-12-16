@@ -97,7 +97,7 @@ public class EnemyAI : MonoBehaviour {
         OnExitState(currentState);
 
         currentState = newState;
-        Debug.Log($"{name}: {currentState}");
+        //Debug.Log($"{name}: {currentState}");
 
         OnEnterState(currentState);
     }
