@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 3109083438442477129}
   - component: {fileID: 4361269330660546678}
   - component: {fileID: 4247571798874021012}
+  - component: {fileID: -348853270135745237}
   m_Layer: 6
   m_Name: BossPrefab
   m_TagString: Enemy
@@ -208,6 +209,18 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &-348853270135745237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968807328897646889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f771a0ebe2dc5964cb723165ea04b611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossIdentifier
 --- !u!1001 &2288283393385791577
 PrefabInstance:
   m_ObjectHideFlags: 0
