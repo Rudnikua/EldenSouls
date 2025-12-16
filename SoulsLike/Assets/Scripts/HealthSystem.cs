@@ -68,7 +68,9 @@ public class HealthSystem : MonoBehaviour, IDamageable {
             if (GetComponent<BossIdentifier>() != null) {
                 OnBossDeath?.Invoke(this, EventArgs.Empty);
             }
-
+            Sounds sounds = GetComponent<Sounds>();
+            sounds?.PlayDeathSound();
+            
             Destroy(gameObject);
         }
     }

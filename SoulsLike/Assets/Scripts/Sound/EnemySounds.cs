@@ -26,14 +26,29 @@ public class Sounds : MonoBehaviour
     }
     public void PlayDeathSound()
     {
-        audioSource.PlayOneShot(deathSound);
+        if (deathSound == null) return;
+
+        GameObject audioGO = new GameObject("EnemyDeathSound");
+        audioGO.transform.position = transform.position;
+
+        AudioSource src = audioGO.AddComponent<AudioSource>();
+        src.clip = deathSound;
+        src.spatialBlend = 1f;
+        src.volume = 0.8f;
+        src.minDistance = 1f;
+        src.maxDistance = 5f;
+        src.Play();
+
+        Destroy(audioGO, deathSound.length);
     }
+
+
 
     public void PlayRandomMoveSound()
     {
         if (moveSounds.Length == 0) return;
         AudioClip randomMoveSound = moveSounds[Random.Range(0, moveSounds.Length)];
-        audioSource.PlayOneShot(randomMoveSound);
+        audioSource.PlayOneShot(randomMoveSound, 0.25f);
     }
 
     
