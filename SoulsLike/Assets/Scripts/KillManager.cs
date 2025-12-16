@@ -31,7 +31,7 @@ public class KillManager : MonoBehaviour
     {
         if (portalPrefab == null || portalSpawnPoint == null)
         {
-            Debug.LogWarning("Портал или точка спавна НЕ назначены!");
+            Debug.LogWarning("Portal or spawn point is NULL");
             return;
         }
 
