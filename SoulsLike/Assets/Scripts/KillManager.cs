@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class KillManager : MonoBehaviour
@@ -5,44 +8,56 @@ public class KillManager : MonoBehaviour
     public static KillManager Instance;
 
     [Header("Kill Settings")]
-    public int killCount = 0;
-    public int killsToOpenPortal = 2;
+    [SerializeField] private GameObject potralPrefab;
 
-    [Header("Portal Settings")]
-    public GameObject portalPrefab;      
-    public Transform portalSpawnPoint;    
-    public Transform teleportTarget;     
+    [System.Serializable]
+    public class PortalLocation {
+        public string locationName = "Location 1";
+        public int killsRequired;
+        public Transform spawnPoint;
+        public Transform teleportTarget;
 
-    private void Awake()
-    {
+        [HideInInspector]
+        public bool hasSpawned = false; 
+    }
+
+    [Header("Portal Location Settings")]
+    public List<PortalLocation> portalLocations;
+
+    private int killCount = 0;
+
+    private void Awake() {
         Instance = this;
     }
-
-    public void AddKill()
-    {
+    public void AddKill() {
         killCount++;
-        Debug.Log("Kills: " + killCount);
+        Debug.Log($"Kill Count: {killCount}");
 
-        if (killCount >= killsToOpenPortal)
-            SpawnPortal();
+        CheckForPortals();
     }
 
-    private void SpawnPortal()
-    {
-        if (portalPrefab == null || portalSpawnPoint == null)
-        {
-            Debug.LogWarning("Portal or spawn point is NULL");
+    private void CheckForPortals() {
+        foreach (var location in portalLocations) {
+            if (!location.hasSpawned && killCount >= location.killsRequired) {
+                SpawnPortal(location);
+                location.hasSpawned = true;
+            }
+        }
+    }
+
+    private void SpawnPortal(PortalLocation location) {
+        if (potralPrefab == null || location.spawnPoint == null) {
+            Debug.LogWarning("Portal prefab or spawn point is not assigned.");
             return;
         }
 
-        GameObject portal = Instantiate(portalPrefab, portalSpawnPoint.position, portalSpawnPoint.rotation);
+        GameObject portal = Instantiate(potralPrefab, location.spawnPoint.position, location.spawnPoint.rotation);
 
-        PortalTeleport tele = portal.GetComponent<PortalTeleport>();
-        if (tele != null)
-        {
-            tele.teleportTarget = teleportTarget;
+        PortalTeleport teleportTo = portal.GetComponent<PortalTeleport>();
+        if (teleportTo != null) {
+            teleportTo.teleportTarget = location.teleportTarget;
         }
 
-        Debug.Log("Portal Spawned!");
+        Debug.Log($"Portal spawned at {location.locationName} after reaching {location.killsRequired} kills.");
     }
 }

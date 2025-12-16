@@ -11,6 +11,7 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
+        public static ThirdPersonController Instance { get; private set; }
         [Header("Player")]
         public float MoveSpeed = 2.0f;
         public float SprintSpeed = 5.335f;
@@ -102,6 +103,7 @@ namespace StarterAssets
 
         private void Awake()
         {
+            Instance = this;
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
