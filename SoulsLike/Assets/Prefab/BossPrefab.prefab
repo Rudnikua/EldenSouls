@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -348853270135745237}
   - component: {fileID: 1607318594432600100}
   - component: {fileID: -2775668321026117339}
+  - component: {fileID: -2757511955380317837}
   m_Layer: 6
   m_Name: BossPrefab
   m_TagString: Enemy
@@ -90,6 +91,7 @@ MonoBehaviour:
   maxHealth: 250
   isPlayer: 0
   dropSettings: {fileID: 11400000, guid: 4454a98be1163624aa5c027b2f429e48, type: 2}
+  playerSounds: {fileID: 0}
   IsInvulnerable: 0
 --- !u!136 &1305582096403770296
 CapsuleCollider:
@@ -236,7 +238,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -245,7 +247,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -280,7 +282,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -332,10 +334,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbafeeb10e93c964783792b203515ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sounds
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1607318594432600100}
   attackSound: {fileID: 0}
   deathSound: {fileID: 0}
   moveSounds: []
+--- !u!114 &-2757511955380317837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3968807328897646889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f523e01fd6e9e4c858382ff752183f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitSounds
+  heavyHitSounds: []
+  volume: 0.6
 --- !u!1001 &2288283393385791577
 PrefabInstance:
   m_ObjectHideFlags: 0

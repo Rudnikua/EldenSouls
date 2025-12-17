@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 201672115481343872}
   - component: {fileID: -7537609882106641243}
   - component: {fileID: 4998009966583590813}
+  - component: {fileID: -1935256560602099642}
   m_Layer: 6
   m_Name: SlimePrefab
   m_TagString: Enemy
@@ -144,6 +145,7 @@ MonoBehaviour:
   maxHealth: 100
   isPlayer: 0
   dropSettings: {fileID: 11400000, guid: 4454a98be1163624aa5c027b2f429e48, type: 2}
+  playerSounds: {fileID: 0}
   IsInvulnerable: 0
 --- !u!114 &6486432896216456232
 MonoBehaviour:
@@ -293,6 +295,21 @@ MonoBehaviour:
   moveSounds:
   - {fileID: 8300000, guid: e346e8e71579dfc40b27812206c32aa8, type: 3}
   - {fileID: 8300000, guid: 9c5af0e40b97d0d4ea7b38c7a7ff7ce9, type: 3}
+--- !u!114 &-1935256560602099642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760418390620271569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f523e01fd6e9e4c858382ff752183f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitSounds
+  heavyHitSounds:
+  - {fileID: 8300000, guid: ecef0a7b7b4865241b556624c88bd9ca, type: 3}
+  volume: 0.6
 --- !u!1 &7972260601031300072
 GameObject:
   m_ObjectHideFlags: 0

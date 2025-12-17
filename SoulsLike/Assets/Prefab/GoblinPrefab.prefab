@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2395023701106327315}
   - component: {fileID: -2908639789575009061}
   - component: {fileID: 3863858719775296557}
+  - component: {fileID: 1435690392073564092}
   m_Layer: 6
   m_Name: GoblinPrefab
   m_TagString: Enemy
@@ -149,6 +150,7 @@ MonoBehaviour:
   maxHealth: 100
   isPlayer: 0
   dropSettings: {fileID: 11400000, guid: 4454a98be1163624aa5c027b2f429e48, type: 2}
+  playerSounds: {fileID: 0}
   IsInvulnerable: 0
 --- !u!114 &8030244339761808531
 MonoBehaviour:
@@ -297,6 +299,22 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: ce003c5c3f6d8454793e9971f4ffb71e, type: 3}
   moveSounds:
   - {fileID: 8300000, guid: 968fbcd101c3ee345a26732c7374940d, type: 3}
+--- !u!114 &1435690392073564092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3570919015773599511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f523e01fd6e9e4c858382ff752183f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitSounds
+  heavyHitSounds:
+  - {fileID: 8300000, guid: 6399cce84f2656d49b91e9a2f9072ea0, type: 3}
+  - {fileID: 8300000, guid: a4e1c376b9f31a14aa1f1b1107d270c5, type: 3}
+  volume: 0.6
 --- !u!1 &5535651578068847690
 GameObject:
   m_ObjectHideFlags: 0

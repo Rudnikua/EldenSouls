@@ -143,6 +143,7 @@ MonoBehaviour:
   maxHealth: 100
   isPlayer: 0
   dropSettings: {fileID: 11400000, guid: 4454a98be1163624aa5c027b2f429e48, type: 2}
+  playerSounds: {fileID: 0}
   IsInvulnerable: 0
 --- !u!114 &4146350611411285732
 MonoBehaviour:
@@ -169,8 +170,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -179,7 +180,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -214,7 +215,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -267,9 +268,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sounds
   audioSource: {fileID: -7066419993221009510}
-  attackSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  moveSounds: []
+  attackSound: {fileID: 8300000, guid: 54fa02a7a3920dd40a5331a9cde713e0, type: 3}
+  deathSound: {fileID: 8300000, guid: 454175cb895bb0e42bd84d8bf2e8a019, type: 3}
+  moveSounds:
+  - {fileID: 8300000, guid: f20f85aa6f2706c48a79f0918b608ee3, type: 3}
+  - {fileID: 8300000, guid: aab6a423f20c58747a87d1e86c7d81e3, type: 3}
+  - {fileID: 8300000, guid: 0a33eb10f9b1ddf489e53f045c39162d, type: 3}
 --- !u!1 &6959632260400998366
 GameObject:
   m_ObjectHideFlags: 0

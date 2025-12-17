@@ -18,6 +18,9 @@ public class AttackTrigger : MonoBehaviour {
 
         target.TakeDamage(damage);
 
+        other.GetComponent<EnemyHitSounds>()?.PlayHeavyHit();
+
+
         //Debug.Log($"{gameObject.name} has dealt {damage} damage to {other.name}");
     }
 
