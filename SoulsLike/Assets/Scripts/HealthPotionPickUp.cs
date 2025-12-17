@@ -8,6 +8,7 @@ public class HealthPotionPickUp : MonoBehaviour {
             var inventory = other.GetComponent<PlayerInventory>();
             if (inventory != null && inventory.CanPickUpPotion()) {
                 inventory.AddPotion();
+                GetComponent<PickupSound>()?.Play();
                 Destroy(gameObject);
             }
         }
