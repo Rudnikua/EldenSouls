@@ -17992,6 +17992,7 @@ GameObject:
   - component: {fileID: 662309411}
   - component: {fileID: 662309410}
   - component: {fileID: 662309409}
+  - component: {fileID: 662309412}
   m_Layer: 0
   m_Name: Location1Ambient
   m_TagString: Untagged
@@ -18010,8 +18011,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: aca79e5908bd5ec4fb8ace2466e533e8, type: 3}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 229c097454187c841b4b3fea67e68ee3, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
@@ -18127,11 +18128,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -174.4062, y: 12, z: -267.1393}
-  m_LocalScale: {x: 7346.193, y: 7346.193, z: 7346.193}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &662309412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662309408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cca608c93bd5746a1401d38e19717f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicZone
 --- !u!1001 &668557079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50710,6 +50723,7 @@ GameObject:
   - component: {fileID: 1720673712}
   - component: {fileID: 1720673711}
   - component: {fileID: 1720673710}
+  - component: {fileID: 1720673713}
   m_Layer: 0
   m_Name: Location2Ambient
   m_TagString: Untagged
@@ -50728,8 +50742,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 7a51bb7aa700f5d498fc4fd2f19e6a41, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
@@ -50845,11 +50859,23 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -173.6, y: 12, z: -42}
-  m_LocalScale: {x: 6971.188, y: 6971.188, z: 6971.188}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1720673713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720673709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cca608c93bd5746a1401d38e19717f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusicZone
 --- !u!1 &1721125787
 GameObject:
   m_ObjectHideFlags: 0
