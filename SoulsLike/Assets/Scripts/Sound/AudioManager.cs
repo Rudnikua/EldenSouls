@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
     {
         
         float startVolume = audioSource.volume;
-        for (float t = 0; t < fadeTime; t += Time.deltaTime)
+        for (float t = 0; t < fadeTime; t += Time.unscaledDeltaTime)
         {
             audioSource.volume = Mathf.Lerp(startVolume, 0, t / fadeTime);
             yield return null;
@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
 
         
-        for (float t = 0; t < fadeTime; t += Time.deltaTime)
+        for (float t = 0; t < fadeTime; t += Time.unscaledDeltaTime)
         {
             audioSource.volume = Mathf.Lerp(0, 1, t / fadeTime);
             yield return null;

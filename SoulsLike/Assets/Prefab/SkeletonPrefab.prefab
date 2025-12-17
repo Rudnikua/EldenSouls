@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4146350611411285732}
   - component: {fileID: -7066419993221009510}
   - component: {fileID: 6369182628756849261}
+  - component: {fileID: -683692223101351154}
   m_Layer: 6
   m_Name: SkeletonPrefab
   m_TagString: Enemy
@@ -275,6 +276,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f20f85aa6f2706c48a79f0918b608ee3, type: 3}
   - {fileID: 8300000, guid: aab6a423f20c58747a87d1e86c7d81e3, type: 3}
   - {fileID: 8300000, guid: 0a33eb10f9b1ddf489e53f045c39162d, type: 3}
+--- !u!114 &-683692223101351154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4945744458092574414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f523e01fd6e9e4c858382ff752183f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitSounds
+  heavyHitSounds:
+  - {fileID: 8300000, guid: 148ccc980878c6a46bef062c56acf234, type: 3}
+  - {fileID: 8300000, guid: fe58237267d59be47a5bda82ef8eb221, type: 3}
+  volume: 1
 --- !u!1 &6959632260400998366
 GameObject:
   m_ObjectHideFlags: 0
