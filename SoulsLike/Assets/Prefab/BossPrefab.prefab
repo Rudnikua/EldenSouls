@@ -336,9 +336,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sounds
   audioSource: {fileID: 1607318594432600100}
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 26df97cf0259ce34caca16858dd020f6, type: 3}
   deathSound: {fileID: 0}
-  moveSounds: []
+  moveSounds:
+  - {fileID: 8300000, guid: b3d4eba63bfc0174aa81bb9b37257b05, type: 3}
 --- !u!114 &-2757511955380317837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +352,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f523e01fd6e9e4c858382ff752183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHitSounds
-  heavyHitSounds: []
+  heavyHitSounds:
+  - {fileID: 8300000, guid: 6399cce84f2656d49b91e9a2f9072ea0, type: 3}
+  - {fileID: 8300000, guid: a4e1c376b9f31a14aa1f1b1107d270c5, type: 3}
   volume: 0.6
 --- !u!1001 &2288283393385791577
 PrefabInstance:

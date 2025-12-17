@@ -19,6 +19,9 @@ public class PlayerSounds : MonoBehaviour
     [Header("Death Sound")]
     public AudioClip deathSound;
 
+    [Header("Heal Sound")]
+    public AudioClip healSound;
+    
     private bool isDead = false;
 
 
@@ -69,6 +72,11 @@ public class PlayerSounds : MonoBehaviour
         src.Play();
 
         Destroy(audioGO, deathSound.length);
+    }
+
+    public void PlayHeal()
+    {
+        audioSource.PlayOneShot(healSound, 1f);
     }
 
     private void PlayRandomClip(AudioClip[] clips)
