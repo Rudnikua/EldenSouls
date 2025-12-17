@@ -58,13 +58,15 @@ public class PlayerInventory : MonoBehaviour {
 
     private void OnHeal() {
         if (starterAssetsInputs.heal && CanUsePotion()) {
-            UsePotion();
             animator.SetBool(HEAL, true);
             starterAssetsInputs.heal = false;
         }
     }
     public void OnHealStarted() {
         currentPotionInHand = Instantiate(healPotionModel, healPotionHolder.transform);
+    }
+    public void OnHealUsed() {
+        UsePotion();
     }
     public void OnHealFinished() {
         starterAssetsInputs.heal = false;

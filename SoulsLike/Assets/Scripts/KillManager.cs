@@ -1,13 +1,24 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using Mono.Cecil.Cil;
+using Unity.VisualScripting;
 
 public class KillManager : MonoBehaviour
 {
     public static KillManager Instance;
 
+    [Header("UI Settings")]
+    [SerializeField] private TextMeshProUGUI killCountText;
+    [SerializeField] private TextMeshProUGUI portalNotifierText;
+    [SerializeField] private float notificationDuration = 3f;
+
     [Header("Kill Settings")]
     [SerializeField] private GameObject potralPrefab;
+
+    private Coroutine currentNotificationCoroutine;
 
     [System.Serializable]
     public class PortalLocation {
@@ -15,6 +26,8 @@ public class KillManager : MonoBehaviour
         public int killsRequired;
         public Transform spawnPoint;
         public Transform teleportTarget;
+
+        public string notificationMessage = "PORTAL TO THE NEXT LOCATION HAS SPAWNED";
 
         [HideInInspector]
         public bool hasSpawned = false; 
@@ -28,13 +41,27 @@ public class KillManager : MonoBehaviour
     private void Awake() {
         Instance = this;
     }
+
+    private void Start() {
+        UpdateKillText();
+
+        if (portalNotifierText != null) {
+            portalNotifierText.gameObject.SetActive(false);
+        }
+    }
     public void AddKill() {
         killCount++;
-        Debug.Log($"Kill Count: {killCount}");
+
+        UpdateKillText();
 
         CheckForPortals();
     }
 
+    private void UpdateKillText() {
+        if (killCountText != null) {
+            killCountText.text = $"Kills: " + killCount.ToString();
+        }
+    }
     private void CheckForPortals() {
         foreach (var location in portalLocations) {
             if (!location.hasSpawned && killCount >= location.killsRequired) {
@@ -58,5 +85,19 @@ public class KillManager : MonoBehaviour
         }
 
         Debug.Log($"Portal spawned at {location.locationName} after reaching {location.killsRequired} kills.");
+
+        if (portalNotifierText != null) {
+            if (currentNotificationCoroutine != null) {
+                StopCoroutine(currentNotificationCoroutine);
+            }
+            currentNotificationCoroutine = StartCoroutine(ShowPortalNotificationRoutine(location.notificationMessage));
+        }
+    }
+
+    private IEnumerator ShowPortalNotificationRoutine(string message) {
+        portalNotifierText.text = message;
+        portalNotifierText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(notificationDuration);
+        portalNotifierText.gameObject.SetActive(false);
     }
 }

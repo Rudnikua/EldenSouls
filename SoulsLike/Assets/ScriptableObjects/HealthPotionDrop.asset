@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2a1d334d73cc8459b6e38945a0cf90, type: 3}
   m_Name: HealthPotionDrop
   m_EditorClassIdentifier: Assembly-CSharp::HealthPotionDropSettingsSO
-  dropChance: 30
+  dropChance: 35
   healthPotionPrefab: {fileID: 2757090943996335105, guid: ce1aadc4cac07fe42a058e27f6fc2464, type: 3}
