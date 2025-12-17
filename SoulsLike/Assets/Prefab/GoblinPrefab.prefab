@@ -131,6 +131,7 @@ MonoBehaviour:
   - {fileID: 0}
   aggroRange: 7
   attackRange: 2
+  stopAttackRange: 3.5
   lineOfSightCheckRate: 0.3
   attackCD: 1
   patrolWaitTime: 1
