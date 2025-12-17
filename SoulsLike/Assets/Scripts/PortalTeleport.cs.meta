@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 8a14d66ebf821f74fb39e8a24778c7d3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - teleportTarget: {instanceID: 0}
+  - teleportSound: {fileID: 8300000, guid: 5cdacf46a8ca9f648809705ec79433eb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

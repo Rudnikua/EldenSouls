@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PortalTeleport
   teleportTarget: {fileID: 0}
+  teleportSound: {fileID: 8300000, guid: 5cdacf46a8ca9f648809705ec79433eb, type: 3}
 --- !u!1001 &7304007015349843691
 PrefabInstance:
   m_ObjectHideFlags: 0
