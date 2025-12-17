@@ -124,6 +124,7 @@ MonoBehaviour:
   patrolPoints: []
   aggroRange: 7
   attackRange: 1.28
+  stopAttackRange: 3
   lineOfSightCheckRate: 0.3
   attackCD: 2
   patrolWaitTime: 1

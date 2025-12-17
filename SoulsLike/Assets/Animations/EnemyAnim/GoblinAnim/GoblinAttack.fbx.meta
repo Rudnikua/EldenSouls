@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.001
-    second: {fileID: 2100000, guid: 7c705c8a6a557b44fb268229c111ee22, type: 2}
+    second: {fileID: 2100000, guid: 663e8ea157645d54892996fc3c65ea81, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: goblin_Base_color
+    second: {fileID: 2800000, guid: c1228d11f511f7647881dc5dd8f70e9d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

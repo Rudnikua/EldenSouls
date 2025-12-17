@@ -13,11 +13,12 @@ public class EnemyAI : MonoBehaviour {
 
     [Header("References")]
     [SerializeField] private Transform player;
-    [SerializeField] private Transform[] patrolPoints;
+    [SerializeField] private Transform[] patrolPoints; 
 
     [Header("Detection")]
     [SerializeField] private float aggroRange = 7f;
-    [SerializeField] private float attackRange = 7f;
+    [SerializeField] private float attackRange = 3f;
+    [SerializeField] private float stopAttackRange = 4.5f;
     [SerializeField] private float lineOfSightCheckRate = 0.3f;
 
     [Header("Combat")]
@@ -40,8 +41,10 @@ public class EnemyAI : MonoBehaviour {
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
         agent.updateRotation = true;
-        agent.angularSpeed = 500f;
+        agent.angularSpeed = 360f;
+        agent.acceleration = 20f;
     }
 
     private void Start() {
@@ -70,7 +73,7 @@ public class EnemyAI : MonoBehaviour {
                     SetState(State.Patrol);
                 break;
             case State.Attack:
-                if (distanceToPlayer > attackRange || !hasLOS)
+                if (distanceToPlayer > stopAttackRange || !hasLOS)
                     SetState(State.Chase);
                 break;
         }
@@ -151,6 +154,8 @@ public class EnemyAI : MonoBehaviour {
             animator.SetTrigger(AttackHash);
             timeSinceLastAttack = 0;
         }
+
+        UpdateAnimatorSpeed();
     }
     private void StartPatrol() {
         if (patrolPoints.Length == 0) {
@@ -166,8 +171,8 @@ public class EnemyAI : MonoBehaviour {
     private void UpdateAnimatorSpeed() {
         float speed = agent.velocity.magnitude;
         float normilizedspeed = speed / agent.speed;
-        if (normilizedspeed < 0.05f) normilizedspeed = 0f;
-        animator.SetFloat(SpeedHash, normilizedspeed);
+
+        animator.SetFloat(SpeedHash, normilizedspeed, 0.1f, Time.deltaTime);
     }
 
     private bool HasLineOfSight() {
@@ -176,10 +181,12 @@ public class EnemyAI : MonoBehaviour {
 
         timeSinceLOS = 0;
 
-        Vector3 direction = player.position - (transform.position - Vector3.up);
+        Vector3 origin = transform.position + Vector3.up;
+        Vector3 direction = (player.position + Vector3.up) - origin;
         float distance = direction.magnitude;
 
         if (Physics.Raycast(transform.position + Vector3.up, direction, out RaycastHit hit, distance)) {
+            if (hit.transform == player) return true;
             return hit.transform.CompareTag("Player");
         }
 
@@ -205,5 +212,7 @@ public class EnemyAI : MonoBehaviour {
         Gizmos.DrawWireSphere(transform.position, aggroRange);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = new Color(1, 0.5f, 0, 1);
+        Gizmos.DrawWireSphere(transform.position, stopAttackRange);
     }
 }
