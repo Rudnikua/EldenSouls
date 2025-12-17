@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 94dda7ff58878f44cba9402d824c9f3f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bossDeathMenuUI: {instanceID: 0}
+  - playerInput: {instanceID: 0}
+  - victoryMusic: {fileID: 8300000, guid: 18d49dfbf64732145b72172a2dce200f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

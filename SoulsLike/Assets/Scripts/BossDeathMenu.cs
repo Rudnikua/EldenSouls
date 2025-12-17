@@ -8,6 +8,7 @@ public class BossDeathMenu : MonoBehaviour {
 
     [SerializeField] private GameObject bossDeathMenuUI;
     [SerializeField] private StarterAssetsInputs playerInput;
+    [SerializeField] private AudioClip victoryMusic;
     private void Start() {
         if (bossDeathMenuUI == null) {
             Debug.LogError("[DeathMenu] Death Menu UI is not assigned in the inspector.");
@@ -18,6 +19,7 @@ public class BossDeathMenu : MonoBehaviour {
     }
 
     private void HealthSystem_OnBossDeath(object sender, System.EventArgs e) {
+        AudioManager.Instance.PlayMusic(victoryMusic);
         ShowWinScreen();
     }
 

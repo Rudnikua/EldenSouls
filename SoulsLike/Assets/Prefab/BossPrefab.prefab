@@ -238,8 +238,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_PlayOnAwake: 0
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -339,7 +339,7 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 26df97cf0259ce34caca16858dd020f6, type: 3}
   deathSound: {fileID: 0}
   moveSounds:
-  - {fileID: 8300000, guid: b3d4eba63bfc0174aa81bb9b37257b05, type: 3}
+  - {fileID: 8300000, guid: 7d8653f74f409e04a8267d79190f792d, type: 3}
 --- !u!114 &-2757511955380317837
 MonoBehaviour:
   m_ObjectHideFlags: 0
