@@ -36063,6 +36063,7 @@ MonoBehaviour:
   maxHealth: 200
   isPlayer: 1
   dropSettings: {fileID: 0}
+  playerSounds: {fileID: 1762682309}
   IsInvulnerable: 0
 --- !u!114 &1762682299
 MonoBehaviour:
@@ -36113,13 +36114,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSounds
   audioSource: {fileID: 1762682310}
-  swordDrawSound: {fileID: 0}
-  swordSwingSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  runStepSounds: []
-  jumpSound: {fileID: 0}
-  runSpeedThreshold: 0.1
-  runStepInterval: {x: 0.35, y: 0.55}
+  swordDrawSounds:
+  - {fileID: 8300000, guid: 8c0254e084f56ab4ca781e189594f213, type: 3}
+  - {fileID: 8300000, guid: 70d2d6e30e7b3b84b988417dbc41e8ff, type: 3}
+  - {fileID: 8300000, guid: e5a8846fc52b4de47812871294ee8d5d, type: 3}
+  swordSwingSounds:
+  - {fileID: 8300000, guid: 58c499bf5fdf0cd4ca60aebe19efb183, type: 3}
+  - {fileID: 8300000, guid: 54fa02a7a3920dd40a5331a9cde713e0, type: 3}
+  - {fileID: 8300000, guid: c2ddf09853de1eb49a37ca9fcbdcd69e, type: 3}
+  swordSheathSounds:
+  - {fileID: 8300000, guid: 080bf791bf337b545805b080f1515949, type: 3}
+  damageSounds:
+  - {fileID: 8300000, guid: c87c662cb0addae4ab38ba1802d4ccc3, type: 3}
+  rollsound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: b7980bbacdf2c0b458b9e5f293ce07e0, type: 3}
 --- !u!82 &1762682310
 AudioSource:
   m_ObjectHideFlags: 0
@@ -36133,7 +36141,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -36177,7 +36185,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

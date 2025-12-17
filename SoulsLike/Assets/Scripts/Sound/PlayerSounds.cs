@@ -1,87 +1,82 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
     [Header("Audio Source")]
     public AudioSource audioSource;
 
-    [Header("Combat")]
-    public AudioClip swordDrawSound;
-    public AudioClip swordSwingSound;
+    [Header("Sword Sounds")]
+    public AudioClip[] swordDrawSounds;  
+    public AudioClip[] swordSwingSounds;
+    public AudioClip[] swordSheathSounds;
+
+    [Header("Damage Sounds")]
+    public AudioClip[] damageSounds;
+
+    [Header("Roll Sound")]
+    public AudioClip rollsound;
+
+    [Header("Death Sound")]
     public AudioClip deathSound;
 
-    [Header("Movement")]
-    public AudioClip[] runStepSounds;
-    public AudioClip jumpSound;
+    private bool isDead = false;
 
-    [Header("Run Settings")]
-    public float runSpeedThreshold = 0.1f;
-    public Vector2 runStepInterval = new Vector2(0.35f, 0.55f);
-
-    private CharacterController characterController;
-    private bool isDead;
-
-    private void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-        StartCoroutine(RunStepsRoutine());
-    }
 
     public void PlaySwordDraw()
     {
-        if (swordDrawSound != null)
-            audioSource.PlayOneShot(swordDrawSound);
+        PlayRandomClip(swordDrawSounds);
     }
-
     public void PlaySwordSwing()
     {
-        if (swordSwingSound != null)
-            audioSource.PlayOneShot(swordSwingSound);
+        PlayRandomClip(swordSwingSounds);
     }
 
-    public void PlayJump()
+    public void PlaySwordSheath()
     {
-        if (jumpSound != null)
-            audioSource.PlayOneShot(jumpSound);
+        PlayRandomClip(swordSheathSounds);
+    }
+
+    public void PlayDamage()
+    {
+        if (isDead) return;
+        PlayRandomClip(damageSounds);
+    }
+
+    public void PlayRoll()
+    {
+        if (rollsound == null) return;
+        
+        float originalPitch = audioSource.pitch;
+        audioSource.pitch = 1f;
+
+        audioSource.PlayOneShot(rollsound, 1f);
+        audioSource.pitch = originalPitch;
+
     }
 
     public void PlayDeath()
     {
-        if (isDead) return;
-        isDead = true;
+        if (deathSound == null) return;
 
-        if (deathSound != null)
-            audioSource.PlayOneShot(deathSound);
-    }
-    private IEnumerator RunStepsRoutine()
-    {
-        while (!isDead)
-        {
-            if (IsRunning())
-            {
-                PlayRandomRunStep();
-                float wait = Random.Range(runStepInterval.x, runStepInterval.y);
-                yield return new WaitForSeconds(wait);
-            }
-            else
-            {
-                yield return null;
-            }
-        }
+        GameObject audioGO = new GameObject("PlayerDeathSound");
+        audioGO.transform.position = transform.position;
+
+        AudioSource src = audioGO.AddComponent<AudioSource>();
+        src.clip = deathSound;
+        src.spatialBlend = 1f;
+        src.minDistance = 1f;
+        src.maxDistance = 5f;
+        src.Play();
+
+        Destroy(audioGO, deathSound.length);
     }
 
-    private bool IsRunning()
+    private void PlayRandomClip(AudioClip[] clips)
     {
-        if (characterController == null) return false;
-        return characterController.velocity.magnitude > runSpeedThreshold &&
-               characterController.isGrounded;
-    }
+        if (clips == null || clips.Length == 0) return;
 
-    private void PlayRandomRunStep()
-    {
-        if (runStepSounds == null || runStepSounds.Length == 0) return;
-        AudioClip clip = runStepSounds[Random.Range(0, runStepSounds.Length)];
-        audioSource.PlayOneShot(clip);
+        AudioClip clip = clips[Random.Range(0, clips.Length)];
+        audioSource.PlayOneShot(clip, 1f);
     }
 }
+

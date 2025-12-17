@@ -11,6 +11,8 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     [SerializeField] private bool isPlayer = false;
     [SerializeField] private HealthPotionDropSettingsSO dropSettings;
 
+    [SerializeField] private PlayerSounds playerSounds;
+
     private float currentHealth;
 
     public event EventHandler<HealthBarChangedEventArgs> OnHealthChanged;
@@ -39,7 +41,10 @@ public class HealthSystem : MonoBehaviour, IDamageable {
         //Debug.Log($"<b>[{gameObject.name}]<b> - {damage}HP -> {currentHealth}/{maxHealth}");
 
         OnHealthChanged?.Invoke(this, new HealthBarChangedEventArgs(currentHealth, maxHealth));
-
+        if (isPlayer)
+        {
+            playerSounds?.PlayDamage();
+        }
         if (currentHealth <= 0) {
             Die();
         }
@@ -56,6 +61,7 @@ public class HealthSystem : MonoBehaviour, IDamageable {
     private void Die() {
         if (isPlayer) {
             Debug.Log("Player died! (GAME OVER)");
+            playerSounds?.PlayDeath();
             OnPlayerDeath?.Invoke(this, EventArgs.Empty);
             gameObject.SetActive(false);
         } else {
