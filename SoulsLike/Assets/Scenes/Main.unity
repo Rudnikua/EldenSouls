@@ -37632,22 +37632,22 @@ MonoBehaviour:
   potralPrefab: {fileID: 6233501329462875358, guid: 0fb97da78c6ebae4e8b93258424100fe, type: 3}
   portalLocations:
   - locationName: Forest
-    killsRequired: 1
+    killsRequired: 10
     spawnPoint: {fileID: 389390447}
     teleportTarget: {fileID: 1274026100}
     notificationMessage: PORTAL TO THE NEXT LOCATION HAS SPAWNED
     hasSpawned: 0
   - locationName: Mountains
-    killsRequired: 1
+    killsRequired: 25
     spawnPoint: {fileID: 2077401718}
     teleportTarget: {fileID: 1804700205}
     notificationMessage: PORTAL TO THE NEXT LOCATION HAS SPAWNED
     hasSpawned: 0
   - locationName: Boss Arena
-    killsRequired: 1
+    killsRequired: 32
     spawnPoint: {fileID: 119238732}
     teleportTarget: {fileID: 1944612684}
-    notificationMessage: PORTAL TO THE NEXT LOCATION HAS SPAWNED
+    notificationMessage: PORTAL TO THE GOBLIN KING HAS SPAWNED
     hasSpawned: 0
 --- !u!4 &1263765973
 Transform:

@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: SoftwareFrom
   productName: EldenSouls
-  defaultCursor: {fileID: 0}
+  defaultCursor: {fileID: 2800000, guid: 1fa6e144a1f437a4dad6415954560849, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
@@ -299,7 +299,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 1ac6c4c75d583ed45bce7399603085df, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
