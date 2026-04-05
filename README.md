@@ -5,7 +5,7 @@
   <img src="https://github.com/user-attachments/assets/f269c3c7-ec32-49c2-a4df-d90b51693b9b" alt="Player Character Model" width="48%" />
 </p>
 <p align="center">
-  <em>Combat against multiple enemies (A* & FSM AI) | Custom-made Player Character Model</em>
+  <em>Combat against multiple enemies (FSM AI) | Custom-made Player Character Model</em>
 </p>
 
 ## 📖 About The Project
